@@ -4,7 +4,7 @@
     "description": "Powerful library to write excel files",
     "keywords": ["excel", "spreadsheet", "document", "xls", "writer"],
     "homepage": "https://github.com/thoroc/php_writeexcel",
-    "license": "LGPL v2.1",
+    "license": "LGPL-2.1",
     "authors": [
         {
             "name": "Johann Hanne",
