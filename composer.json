@@ -1,15 +1,9 @@
 {
-    "name": "thoroc/php_writeexcel",
+    "name": "perlitz-group/php_writeexcel",
     "type": "library",
     "description": "Powerful library to write excel files",
     "keywords": ["excel", "spreadsheet", "document", "xls", "writer"],
     "homepage": "https://github.com/thoroc/php_writeexcel",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/thoroc/php_writeexcel.git"
-        }
-    ],
     "license": "LGPL v2.1",
     "authors": [
         {

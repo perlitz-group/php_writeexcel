@@ -14,20 +14,15 @@ Example for your `composer.json` file:
 
 ```
 {
-    "minimum-stability": "dev",
     "repositories": [
       {
         "type": "vcs",
         "url": "https://github.com/thoroc/php_ole"
-      },
-      {
-        "type": "vcs",
-        "url": "https://github.com/thoroc/php_writeexcel"
       }
     ],
     "require": {
-        "thoroc/php_ole": "master",
-        "thoroc/php_writeexcel": "master"
+        "thoroc/php_ole": "dev-master",
+        "perlitz-group/php_writeexcel": "dev-master"
     }
 }
 ```
