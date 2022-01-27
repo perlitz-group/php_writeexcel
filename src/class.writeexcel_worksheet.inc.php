@@ -1793,7 +1793,7 @@ class writeexcel_worksheet extends writeexcel_biffwriter
         # Strip URL type and change Unix dir separator to Dos style (if needed)
         #
         $url   = preg_replace('[^external:]', '', $url);
-        $url = preg_replace('[/]', '\\');
+        $url = preg_replace('[/]', '\\', $url);
 
         # Write the visible label
         if (!isset($str)) {
