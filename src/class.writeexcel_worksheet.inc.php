@@ -1706,7 +1706,7 @@ class writeexcel_worksheet extends writeexcel_biffwriter
         if (isset($sheet)) {
             $link_type |= 0x08;
             $sheet_len = pack('V', length($sheet) + 0x01);
-            $sheet     = implode("\0", split('', $sheet));
+            $sheet     = implode("\0", false); // TODO was "split('', $sheet)" which returned false with PHP 5.3
             $sheet .= "\0\0\0";
         } else {
             $sheet_len = '';
