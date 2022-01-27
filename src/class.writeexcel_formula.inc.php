@@ -37,7 +37,6 @@
  * Replace spaces with 4 space wide tabs.
  * Fix warnings.
  * Add property scopes.
- * Smarter setting of defines to avoid conflicts with PEAR's Spreadsheet_Excel_Writer if already loaded.
  *
  * Copyright 2015 Craig Manley
  */
@@ -46,31 +45,35 @@
  * This is the Spreadsheet::WriteExcel Perl package ported to PHP
  * Spreadsheet::WriteExcel was written by John McNamara, jmcnamara@cpan.org.
  */
-call_user_func(function () {
-    $defines = array(
-        'SPREADSHEET_EXCEL_WRITER_ADD'    => '+', // @const SPREADSHEET_EXCEL_WRITER_ADD token identifier for character "+"
-        'SPREADSHEET_EXCEL_WRITER_SUB'    => '-', // @const SPREADSHEET_EXCEL_WRITER_SUB token identifier for character "-"
-        'SPREADSHEET_EXCEL_WRITER_MUL'    => '*', // @const SPREADSHEET_EXCEL_WRITER_MUL token identifier for character "*"
-        'SPREADSHEET_EXCEL_WRITER_DIV'    => '/', // @const SPREADSHEET_EXCEL_WRITER_DIV token identifier for character "/"
-        'SPREADSHEET_EXCEL_WRITER_OPEN'   => '(', // @const SPREADSHEET_EXCEL_WRITER_OPEN token identifier for character "("
-        'SPREADSHEET_EXCEL_WRITER_CLOSE'  => ')', // @const SPREADSHEET_EXCEL_WRITER_CLOSE token identifier for character ")"
-        'SPREADSHEET_EXCEL_WRITER_COMA'   => ',', // @const SPREADSHEET_EXCEL_WRITER_COMA token identifier for character " => '
-        'SPREADSHEET_EXCEL_WRITER_SCOLON' => ';', // @const SPREADSHEET_EXCEL_WRITER_SCOLON token identifier for character ";"
-        'SPREADSHEET_EXCEL_WRITER_GT'     => '>', // @const SPREADSHEET_EXCEL_WRITER_GT token identifier for character ">"
-        'SPREADSHEET_EXCEL_WRITER_LT'     => '<', // @const SPREADSHEET_EXCEL_WRITER_LT token identifier for character "<"
-        'SPREADSHEET_EXCEL_WRITER_LE'     => '<=', // @const SPREADSHEET_EXCEL_WRITER_LE token identifier for character "<="
-        'SPREADSHEET_EXCEL_WRITER_GE'     => '>=', // @const SPREADSHEET_EXCEL_WRITER_GE token identifier for character ">="
-        'SPREADSHEET_EXCEL_WRITER_EQ'     => '=', // @const SPREADSHEET_EXCEL_WRITER_EQ token identifier for character "="
-        'SPREADSHEET_EXCEL_WRITER_NE'     => '<>', // @const SPREADSHEET_EXCEL_WRITER_NE token identifier for character "<>"
-    );
-    foreach ($defines as $k => $v) {
-        if (defined($k) && (constant($k) === $v)) {
-            // ignore, probable harmless conflict with loaded PEAR Spreadsheet_Excel_Writer		
-        } else {
-            define($k, $v);
-        }
-    }
-});
+
+define('SPREADSHEET_EXCEL_WRITER_ADD',"+");
+	// @const SPREADSHEET_EXCEL_WRITER_ADD token identifier for character "+"
+define('SPREADSHEET_EXCEL_WRITER_SUB',"-");
+	// @const SPREADSHEET_EXCEL_WRITER_SUB token identifier for character "-"
+define('SPREADSHEET_EXCEL_WRITER_MUL',"*");
+	// @const SPREADSHEET_EXCEL_WRITER_MUL token identifier for character "*"
+define('SPREADSHEET_EXCEL_WRITER_DIV',"/");
+	// @const SPREADSHEET_EXCEL_WRITER_DIV token identifier for character "/"
+define('SPREADSHEET_EXCEL_WRITER_OPEN',"(");
+   // @const SPREADSHEET_EXCEL_WRITER_OPEN token identifier for character "("
+define('SPREADSHEET_EXCEL_WRITER_CLOSE',")");
+ // @const SPREADSHEET_EXCEL_WRITER_CLOSE token identifier for character ")"
+define('SPREADSHEET_EXCEL_WRITER_COMA',",");
+   // @const SPREADSHEET_EXCEL_WRITER_COMA token identifier for character ","
+define('SPREADSHEET_EXCEL_WRITER_SCOLON',";");
+// @const SPREADSHEET_EXCEL_WRITER_SCOLON token identifier for character ";"
+define('SPREADSHEET_EXCEL_WRITER_GT',">");
+	 // @const SPREADSHEET_EXCEL_WRITER_GT token identifier for character ">"
+define('SPREADSHEET_EXCEL_WRITER_LT',"<");
+	 // @const SPREADSHEET_EXCEL_WRITER_LT token identifier for character "<"
+define('SPREADSHEET_EXCEL_WRITER_LE',"<=");
+	// @const SPREADSHEET_EXCEL_WRITER_LE token identifier for character "<="
+define('SPREADSHEET_EXCEL_WRITER_GE',">=");
+	// @const SPREADSHEET_EXCEL_WRITER_GE token identifier for character ">="
+define('SPREADSHEET_EXCEL_WRITER_EQ',"=");
+	 // @const SPREADSHEET_EXCEL_WRITER_EQ token identifier for character "="
+define('SPREADSHEET_EXCEL_WRITER_NE',"<>");
+	// @const SPREADSHEET_EXCEL_WRITER_NE token identifier for character "<>"
 
 /**
  * Class for parsing Excel formulas.
